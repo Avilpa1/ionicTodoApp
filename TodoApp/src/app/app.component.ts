@@ -26,7 +26,7 @@ export class MyApp {
       { title: 'Home', component: HomePage },
       { title: 'Todo', component: TodoPage },
       { title: 'Login', component: LoginPage },
-      { title: 'Signup', component: RegistrationPage }
+      { title: 'Sign Up', component: RegistrationPage }
     ];
 
   }

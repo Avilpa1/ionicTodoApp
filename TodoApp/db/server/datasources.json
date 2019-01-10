@@ -1,0 +1,16 @@
+{
+  "db": {
+    "name": "db",
+    "connector": "memory"
+  },
+  "mongo": {
+    "host": "",
+    "port": 0,
+    "url": "mongodb://admin:admin123@ds153824.mlab.com:53824/todo-db",
+    "database": "todo-db",
+    "password": "admin123",
+    "name": "mongo",
+    "user": "admin",
+    "connector": "mongodb"
+  }
+}

@@ -34,7 +34,7 @@
         
         <ion-item>
           <ion-label floating>Username</ion-label>
-          <ion-input type="text" [(ngModel)]="userProvider.user.userName"></ion-input>
+          <ion-input type="text" [(ngModel)]="userProvider.user.username"></ion-input>
         </ion-item>
       
         <ion-item>
@@ -45,6 +45,8 @@
       </ion-list>
 
       <div padding>
-        <button ion-button color="primary" (click)="userProvider.signUpUser()"block>Sign Up!</button>
+        <button ion-button color="primary" (click)="userProvider.signUpUser()" block>Sign Up!</button>
       </div>
+
+      
   </ion-content>

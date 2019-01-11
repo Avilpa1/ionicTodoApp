@@ -38,5 +38,9 @@
   "userDb": {
     "dataSource": "mongo",
     "public": true
+  },
+  "todo": {
+    "dataSource": "mongo",
+    "public": true
   }
 }

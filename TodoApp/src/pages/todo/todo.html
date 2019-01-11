@@ -20,4 +20,16 @@
     <div *ngIf="selectedItem" padding>
       You navigated here from <b>{{selectedItem.title}}</b>
     </div>
+
+    <ion-item>
+        <ion-label floating>Enter An Item</ion-label>
+        <ion-input type="text" [(ngModel)]="userProvider.itemObj.item" (keyup.enter)="userProvider.addItem()"></ion-input>
+    </ion-item>
+    <div padding>
+        <button ion-button color="primary" (click)="userProvider.addItem()" block>Add Item</button>
+    </div>
+    <div padding>
+        <button ion-button color="primary" (click)="userProvider.delItem()" block>Delete Item</button>
+    </div>
+
   </ion-content>

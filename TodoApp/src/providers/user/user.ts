@@ -19,16 +19,20 @@ export class UserProvider {
       "password": ''
     }
 
+    itemObj = {
+      "item": ''
+    }
+
     signUpResult: any;
     loginResult: any;
     userDataResult: any;
+    addItemResult: any;
     activeId: any 
     activeToken: any
     userLoggedIn: any = ''
     dbURL: string = "http://localhost:3000/api/userDbs"
-    liURL: string = "http://localhost:3000/api/userDbs/login"
 
-
+    // User Sign Up
     signUp() { 
       return this.http.post( this.dbURL, this.user )
     };
@@ -42,8 +46,9 @@ export class UserProvider {
       })
     }
 
+    // User Login
     logIn() {
-      return this.http.post( this.liURL, this.userCred )
+      return this.http.post( this.dbURL + '/login', this.userCred )
     }
 
     logInUser() {
@@ -65,6 +70,7 @@ export class UserProvider {
       })
     }
 
+    // Retrive User Data
     findData(id, token) {
       return this.http.get( this.dbURL + '/' + id + "?access_token=" + token )
     }
@@ -78,6 +84,32 @@ export class UserProvider {
       })
     }
 
+    // Add Item to User DB List
+    addItemRequest(id, token) {
+      return this.http.post( this.dbURL + '/' + id + '/lists?access_token=' + token, this.itemObj  )
+    }
+
+    addItem() {
+      this.addItemRequest(this.activeId, this.activeToken)
+        .subscribe( (response) =>  {
+          this.addItemResult = response
+          console.log(this.addItemResult)
+      }) 
+    }
+
+    // Delete Item From User DB List
+    delItemRequest(id, token) {
+      return this.http.delete( 'http://localhost:3000/api/userDbs/lists/' + id + '?access_token=' + token )
+    }
+
+    delItem(id) {
+      this.delItemRequest(id, this.activeToken)
+        .subscribe( (response) =>  {
+          this.userDataResult = response
+      })
+    }
+
+    // clears Sign Up and Login Forms
     clearForm() {
       this.user.firstName = '';
       this.user.lastName = '';

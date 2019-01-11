@@ -132,6 +132,13 @@ export class UserProvider {
       this.userCred.password = '';
     }
 
+  //User logout
+  logout() {
+    console.log('user logged out')
+    //logout code goes here
+    this.userLoggedIn = '';
+  }
+
 
   
 

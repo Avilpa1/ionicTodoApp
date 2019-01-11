@@ -27,8 +27,10 @@ export class UserProvider {
     loginResult: any;
     userDataResult: any;
     addItemResult: any;
-    activeId: any 
-    activeToken: any
+    getItemResult: any;
+
+    activeId: any;
+    activeToken: any;
     userLoggedIn: any = ''
     dbURL: string = "http://localhost:3000/api/userDbs"
 
@@ -63,14 +65,12 @@ export class UserProvider {
           this.activeId = this.logInResult.userId
           this.activeToken = this.logInResult.token
           
-          console.log(this.activeId)
           this.clearForm()
-          this.findUserData()
-          
+          this.findUserData() 
       })
     }
 
-    // Retrive User Data
+    // Retrives User ID and Token
     findData(id, token) {
       return this.http.get( this.dbURL + '/' + id + "?access_token=" + token )
     }
@@ -99,7 +99,7 @@ export class UserProvider {
 
     // Delete Item From User DB List
     delItemRequest(id, token) {
-      return this.http.delete( 'http://localhost:3000/api/userDbs/lists/' + id + '?access_token=' + token )
+      return this.http.delete( this.dbURL + '/lists/' + id + '?access_token=' + token )
     }
 
     delItem(id) {
@@ -109,7 +109,20 @@ export class UserProvider {
       })
     }
 
-    // clears Sign Up and Login Forms
+    // Retrives DB Items
+    getItemData(id, token) {
+      return this.http.get( this.dbURL + '/lists/' + id + '/favs?access_token=' + token )
+    }
+
+    getItems() {
+      this.getItemData(this.activeId, this.activeToken)
+        .subscribe( (response) =>  {
+          this.getItemResult = response
+          console.log(this.getItemResult)
+      })
+    }
+
+    // Clears Sign Up and Login Forms
     clearForm() {
       this.user.firstName = '';
       this.user.lastName = '';

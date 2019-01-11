@@ -26,10 +26,10 @@
         <ion-input type="text" [(ngModel)]="userProvider.itemObj.item" (keyup.enter)="userProvider.addItem()"></ion-input>
     </ion-item>
     <div padding>
-        <button ion-button color="primary" (click)="userProvider.addItem()" block>Add Item</button>
+        <button ion-button color="primary" (click)="add()" block>Add Item</button>
     </div>
-    <div padding>
+    <!-- <div padding>
         <button ion-button color="primary" (click)="userProvider.delItem()" block>Delete Item</button>
-    </div>
+    </div> -->
 
   </ion-content>

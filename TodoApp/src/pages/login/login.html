@@ -20,4 +20,22 @@
     <div *ngIf="selectedItem" padding>
       You navigated here from <b>{{selectedItem.title}}</b>
     </div>
+
+    <ion-list>
+
+        <ion-item>
+          <ion-label floating>Username</ion-label>
+          <ion-input type="text"></ion-input>
+        </ion-item>
+      
+        <ion-item>
+          <ion-label floating>Password</ion-label>
+          <ion-input type="password"></ion-input>
+        </ion-item>
+      
+      </ion-list>
+
+      <div padding>
+        <button ion-button color="primary" block>Login</button>
+      </div>
   </ion-content>

@@ -20,7 +20,7 @@ export class UserProvider {
     }
 
     itemObj = {
-      "item": ''
+      "item": 'Get eggs'
     }
 
     signUpResult: any;

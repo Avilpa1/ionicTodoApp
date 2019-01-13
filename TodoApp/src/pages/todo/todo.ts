@@ -14,7 +14,8 @@ export class TodoPage {
   }
 
   add() {
-    this.userProvider.addItem()
+    this.userProvider.addItem();
+    this.userProvider.getItems();
     this.navCtrl.setRoot(HomePage);
   }
 

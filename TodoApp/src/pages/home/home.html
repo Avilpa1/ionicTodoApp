@@ -12,6 +12,11 @@
   <h3>{{ userProvider.userLoggedIn }}</h3>
 
 
-  <p>Show Items Here</p>
+  <h2>Todo list</h2>
+  <div *ngIf="itemArray">
+    <p *ngFor="let item of itemArray">{{item}}</p>
+    
+  </div>
   <!-- <button ion-button secondary menuToggle>Toggle Menu</button> -->
+  <button ion-button secondary (click)="onGetItems()">Get item</button>
 </ion-content>

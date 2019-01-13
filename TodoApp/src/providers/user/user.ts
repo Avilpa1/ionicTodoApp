@@ -27,7 +27,7 @@ export class UserProvider {
     loginResult: any;
     userDataResult: any;
     addItemResult: any;
-    getItemResult: any;
+    getItemResult: any = {'0': { '1': {'item': 'Empty list'}}};
 
     activeId: any;
     activeToken: any;
@@ -111,14 +111,12 @@ export class UserProvider {
 
     // Retrives DB Items
     getItemData(id, token) {
-//http://localhost:3000/api/userDbs/5c399d93cad1ab3b68489709/lists?access_token=QVARZFJUNAid6wmgQQ6z0ezsdYFLnF1kW91fZYVnqenC4jU6G6aDcolA3cEPjd52
       return this.http.get( this.dbURL + '/' + id + '/lists' + '?access_token=' + token )
     }
 
     getItems() {
       this.getItemData(this.activeId, this.activeToken)
         .subscribe( (response) =>  {
-          console.log("Get item")
           this.getItemResult = response
           console.log(this.getItemResult)
       })

@@ -27,7 +27,7 @@ export class UserProvider {
     loginResult: any;
     userDataResult: any;
     addItemResult: any;
-    getItemResult: any = {'0': { '1': {'item': 'Empty list'}}};
+    getItemResult: any = {'0': {'item': 'Add item first.'}};
 
     activeId: any;
     activeToken: any;

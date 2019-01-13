@@ -19,6 +19,7 @@ export class HomePage {
     this.items = this.userProvider.getItemResult;
     console.log(this.items);
     let item: any = Object.entries(this.items);
+    console.log(item);
 
     for(let i = 0; i < item.length; i++) {
       this.itemArray.push(item[i]["1"]["item"]);

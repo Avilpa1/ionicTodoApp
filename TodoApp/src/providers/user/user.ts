@@ -19,9 +19,7 @@ export class UserProvider {
       "password": ''
     }
 
-    itemObj = {
-      "item": ''
-    }
+    itemObj;
 
     signUpResult: any;
     loginResult: any;

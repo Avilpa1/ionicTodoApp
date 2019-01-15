@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { UserProvider } from '../../providers/user/user';
 
@@ -19,14 +19,13 @@ export class HomePage {
     this.items = this.userProvider.getItemResult;
     console.log(this.items);
     let item: any = Object.entries(this.items);
-    console.log(item);
+    console.log(item)
 
     for(let i = 0; i < item.length; i++) {
       this.itemArray.push(item[i]["1"]["item"]);
     }
   }
   ionViewDidLoad() {
+    this.userProvider.getItems();
   }
-  
-  
 }

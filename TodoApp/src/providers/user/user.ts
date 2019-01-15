@@ -82,6 +82,7 @@ export class UserProvider {
           this.userDataResult = response
           console.log(this.userDataResult)
           this.userLoggedIn = 'Welcome, ' + this.userDataResult.firstName
+          this.getItems()
       })
     }
 
@@ -108,6 +109,7 @@ export class UserProvider {
         .subscribe( (response) =>  {
           this.userDataResult = response
           console.log(this.userDataResult)
+          this.getItems()
       })
     }
 

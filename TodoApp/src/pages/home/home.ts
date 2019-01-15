@@ -28,5 +28,7 @@ export class HomePage {
   ionViewDidLoad() {
   }
   
-  
+  ionViewWillEnter() {
+    console.log(UserProvider.getItemResult)
+  }
 }

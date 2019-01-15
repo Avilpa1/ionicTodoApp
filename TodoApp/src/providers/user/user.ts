@@ -141,6 +141,16 @@ export class UserProvider {
     this.userLoggedIn = '';
   }
 
+  logInCheck() {
+    this.activeId = window.sessionStorage.getItem('userId')
+    this.activeToken = window.sessionStorage.getItem('token')
+    
+    let location = window.location.href.substr(-4)
+    
+    if (this.activeId != null) {
+      this.findUserData()
+    }
+  }
 
   
 

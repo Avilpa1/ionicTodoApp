@@ -24,7 +24,7 @@ export class UserProvider {
     }
 
     signUpResult: any;
-    loginResult: any;
+    logInResult: any;
     userDataResult: any;
     addItemResult: any;
     getItemResult: any

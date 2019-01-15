@@ -36,10 +36,11 @@ export class UserProvider {
 
     // User Sign Up
     signUp() { 
-      return this.http.post( this.dbURL, this.user )
+      return this.http.post( this.dbURL + '/', this.user )
     };
     
     signUpUser() {
+      console.log(this.user)
         this.signUp()
           .subscribe( (response) =>  {
             this.signUpResult = response

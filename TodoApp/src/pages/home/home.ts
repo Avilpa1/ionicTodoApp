@@ -15,17 +15,21 @@ export class HomePage {
   }
 
   // Get item from database to display on home page
-  onGetItems() {
-    this.items = this.userProvider.getItemResult;
-    console.log(this.items);
-    let item: any = Object.entries(this.items);
-    console.log(item)
+  // onGetItems() {
+  //   this.items = this.userProvider.getItemResult;
+  //   console.log(this.items);
+  //   let item: any = Object.entries(this.items);
+  //   console.log(item)
 
-    for(let i = 0; i < item.length; i++) {
-      this.itemArray.push(item[i]["1"]["item"]);
-    }
-  }
+  //   for(let i = 0; i < item.length; i++) {
+  //     this.itemArray.push(item[i]["1"]["item"]);
+  //   }
+  // }
   ionViewDidLoad() {
     this.userProvider.getItems();
+  }
+  
+  ionViewWillEnter() {
+    // console.log(UserProvider.getItemResult)
   }
 }

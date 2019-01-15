@@ -13,10 +13,12 @@
 
 
   <h2>Todo list</h2>
-  <div *ngIf="itemArray">
-    <h4 *ngFor="let item of itemArray">{{item}}</h4>
-    
+
+    <div *ngIf="userProvider.getItemResult">
+      {{ userProvider.getItemResult[0].item }}
+    <h5 *ngFor="let x of userProvider.getItemResult; let i = index">
+     {{ i+1 }} {{ x.item }}
+     <a id="delItem" (click)='userProvider.delItem(x.id)'>&#x2716;</a>
+    </h5>
   </div>
-  <!-- <button ion-button secondary menuToggle>Toggle Menu</button> -->
-  <button ion-button secondary (click)="onGetItems()">Get item</button>
 </ion-content>

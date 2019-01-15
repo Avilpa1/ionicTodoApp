@@ -22,10 +22,11 @@ export class UserProvider {
     itemObj;
 
     signUpResult: any;
-    loginResult: any;
+    logInResult: any;
     userDataResult: any;
     addItemResult: any;
-    getItemResult: any = {'0': {'item': 'Add item first.'}};
+    // getItemResult: any = {'0': {'item': 'Add item first.'}};
+    getItemResult: any
 
     activeId: any;
     activeToken: any;
@@ -97,13 +98,15 @@ export class UserProvider {
 
     // Delete Item From User DB List
     delItemRequest(id, token) {
-      return this.http.delete( this.dbURL + '/lists/' + id + '?access_token=' + token )
+      return this.http.delete( 'http://localhost:3000/api/lists/' + id + '?access_token=' + token )
     }
 
     delItem(id) {
       this.delItemRequest(id, this.activeToken)
         .subscribe( (response) =>  {
           this.userDataResult = response
+          console.log(this.userDataResult)
+          this.getItems();
       })
     }
 

@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { Nav, Platform, ionicBootstrap } from 'ionic-angular';
+import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
@@ -44,5 +44,5 @@ export class MyApp {
     this.nav.setRoot(page.component);
   }
 
-  ionicBootstrap(MyApp, [UserProvider]);
+  // ionicBootstrap(MyApp, [UserProvider]);
 }

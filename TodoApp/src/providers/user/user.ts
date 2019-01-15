@@ -27,7 +27,6 @@ export class UserProvider {
     loginResult: any;
     userDataResult: any;
     addItemResult: any;
-    // getItemResult: any = {'0': {'item': 'Add item first.'}};
     getItemResult: any
 
     activeId: any;
@@ -141,6 +140,10 @@ export class UserProvider {
     console.log('user logged out')
     //logout code goes here
     this.userLoggedIn = '';
+    this.activeId = '';
+    this.activeToken = '';
+    this.getItemResult = '';
+    window.sessionStorage.clear()
   }
 
   logInCheck() {

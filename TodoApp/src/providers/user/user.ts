@@ -25,7 +25,6 @@ export class UserProvider {
     logInResult: any;
     userDataResult: any;
     addItemResult: any;
-    // getItemResult: any = {'0': {'item': 'Add item first.'}};
     getItemResult: any
 
     activeId: any;
@@ -35,10 +34,11 @@ export class UserProvider {
 
     // User Sign Up
     signUp() { 
-      return this.http.post( this.dbURL, this.user )
+      return this.http.post( this.dbURL + '/', this.user )
     };
     
     signUpUser() {
+      console.log(this.user)
         this.signUp()
           .subscribe( (response) =>  {
             this.signUpResult = response
@@ -80,6 +80,7 @@ export class UserProvider {
           this.userDataResult = response
           console.log(this.userDataResult)
           this.userLoggedIn = 'Welcome, ' + this.userDataResult.firstName
+          this.getItems()
       })
     }
 
@@ -106,7 +107,7 @@ export class UserProvider {
         .subscribe( (response) =>  {
           this.userDataResult = response
           console.log(this.userDataResult)
-          this.getItems();
+          this.getItems()
       })
     }
 
@@ -138,8 +139,22 @@ export class UserProvider {
     console.log('user logged out')
     //logout code goes here
     this.userLoggedIn = '';
+    this.activeId = '';
+    this.activeToken = '';
+    this.getItemResult = '';
+    window.sessionStorage.clear()
   }
 
+  logInCheck() {
+    this.activeId = window.sessionStorage.getItem('userId')
+    this.activeToken = window.sessionStorage.getItem('token')
+    
+    let location = window.location.href.substr(-4)
+    
+    if (this.activeId != null) {
+      this.findUserData()
+    }
+  }
 
   
 

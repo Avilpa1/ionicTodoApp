@@ -30,6 +30,6 @@ export class HomePage {
   }
   
   ionViewWillEnter() {
-    // console.log(UserProvider.getItemResult)
+    this.userProvider.logInCheck()
   }
 }

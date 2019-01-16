@@ -15,10 +15,10 @@
   <h2>Todo list</h2>
 
     <div *ngIf="userProvider.getItemResult">
-      {{ userProvider.getItemResult[0].item }}
     <h5 *ngFor="let x of userProvider.getItemResult; let i = index">
-     {{ i+1 }} {{ x.item }}
+     {{ i+1 }}. {{ x.item }}
      <a id="delItem" (click)='userProvider.delItem(x.id)'>&#x2716;</a>
     </h5>
   </div>
+  
 </ion-content>
